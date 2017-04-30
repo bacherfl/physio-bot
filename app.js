@@ -179,9 +179,7 @@ function sendShoulderTendinitisInfo(session) {
             new builder.HeroCard(session)
                 .title("Shoulder Tendonitis")
                 .subtitle("")
-                .text("<b>What should I feel?</b><hr />Pain with arm to the side and overhead<hr/>" + 
-                    "<b>What is it?</b><hr/>Inflammation of the rotator cuff tendon<hr/>" +
-                    "<b>What causes it?</b><hr/>overuse</hr>")
+                .text("")
                 .images([
                     builder.CardImage.create(session, "http://physioworks.com.au/Injuries-Conditions/Regions/rotator-cuff-tendonitis.png.jpg")
                 ])               
