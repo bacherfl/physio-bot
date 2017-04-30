@@ -88,14 +88,14 @@ bot.dialog('/assessRepeatedLifting', buildYesNoQuestionConfig(
         sendShoulderTendinitisInfo(session);
     },
     function noCallback(session) {
-        session.send("It's a good chance it's a Rotator Cuff Tear");
+        session.endConversation("It's a good chance it's a Rotator Cuff Tear");
     })
 );
 
 bot.dialog('/assessImpingement', buildYesNoQuestionConfig(
     "When you lift your arm to the side or perform a shoulder impingement test, do you feel a pinching?",
     function yesCallback(session) {
-        session.send("It's a good chance you have a Shoulder Subluxation");
+        session.endConversation("It's a good chance you have a Shoulder Subluxation");
     },
     function noCallback(session) {
         session.beginDialog('/assessFlexibility');
@@ -105,10 +105,10 @@ bot.dialog('/assessImpingement', buildYesNoQuestionConfig(
 bot.dialog('/assessFlexibility', buildYesNoQuestionConfig(
     "Your shoulder joint gives way easy and you're very flexible in your shoulders",
     function yesCallback(session) {
-        session.send("It's a good chance you have a Shoulder Subluxation");
+        session.endConversation("It's a good chance you have a Shoulder Subluxation");
     },
     function noCallback(session) {
-        session.send("Redo the assessment, or maybe it's a problem I can't identify yet");
+        session.endConversation("Redo the assessment, or maybe it's a problem I can't identify yet");
     }
 ))
 
@@ -188,6 +188,6 @@ function sendShoulderTendinitisInfo(session) {
             ]);
             
     session.send(msg);
-    session.send("Stop ego lifting, you moron!");
+    session.endConversation("Stop ego lifting, you moron!");
 
 }
